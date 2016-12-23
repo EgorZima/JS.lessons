@@ -1,17 +1,17 @@
 function anClean(arr) {
 	var obj = {};
 
-	for(var i = 0; i < arr.length; i++ ) {
+	for (var i = 0; i < arr.length; i++) {
 		var sorted = arr[i].toLowerCase().split('').sort().join('');
 
 		obj[sorted] = arr[i];
 	};
-
-	var result = [];
-
+	var word = [];
+    
 	for(var key in obj){
-		result.push(obj[key]);
-	};
+		word.push(obj[key]);
+	}
+	var result = word.join(' ');
 
 	return result;
 };
