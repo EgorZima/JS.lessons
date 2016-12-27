@@ -8,8 +8,9 @@ function findUnique(arr) {
 		newArr.push(arr[i])
 	  }
     }
-
-    return newArr;
+    
+    var result = newArr.join(' ')
+    return result;
 }
 
 
