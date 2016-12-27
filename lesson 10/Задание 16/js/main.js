@@ -13,4 +13,7 @@ function isPangram(string){
 
 
 var str = 'The quick brown fox jumps over the lazy dog';
+var strTwo = 'The quick brown fox';
+
 console.log( isPangram(str) );
+console.log( isPangram(strTwo) );
