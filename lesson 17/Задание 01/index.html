@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Название страницы</title>
+    <script src='js/main.js'></script>
+</head>
+
+<style>
+  .menu{
+    color: lightgreen;
+    font-size: 100px;
+    transition: 0.4s;
+  }
+  .menu_hidden{
+    color: lightblue;
+    font-size: 150px;
+    transition: 0.4s;
+  }
+</style>
+
+<body>
+
+  <div onclick="hideElem(this)" class="menu">
+     Menu
+  </div>
+
+  
+  <script>
+     function hideElem(elem) {
+        elem.classList.toggle('menu_hidden');
+     }
+  </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
+

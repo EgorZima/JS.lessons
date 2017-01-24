@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Название страницы</title>
+    <script src='js/main.js'></script>
+</head>
+
+<style>
+  div {
+    color: #b3b3b3;
+    font-size: 40px;
+    font-family: Tahoma;
+  }
+</style>
+<body>
+
+  <div>one</div>
+  <div>two</div>
+  <div>three</div>
+
+
+  <script>
+    if(!Element.prototype.remove) {
+      Element.prototype.remove = function() {
+          if(this.parentNode) {
+            this.parentNode.removeChild(this);
+          }
+      }
+    }
+
+    let div = document.body.children[1];
+
+    setTimeout( () => div.remove() ,1000);
+
+
+
+  </script>
+
+
+
+
+</body>
+</html>
+

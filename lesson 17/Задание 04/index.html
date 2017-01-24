@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Название страницы</title>
+    <script src='js/main.js'></script>
+</head>
+<body>
+  
+
+<div>Это</div>
+<div>Элементы</div>
+
+<script>
+  var elem = document.createElement('div');
+  elem.innerHTML = '<b>Новый элемент</b>';
+
+  function insertAfter(elem, refElem) { 
+    let sibling = refElem.nextSibling;
+    let parent = refElem.parentNode;
+
+    if(sibling) {
+    	return parent.insertBefore(elem,sibling);
+    } else {
+      return parent.appendChild(elem)
+    }
+  }
+
+  var body = document.body;
+  
+  insertAfter(elem, body.lastChild); 
+
+  setTimeout( () => insertAfter(elem, body.firstChild), 1200)
+ 
+</script>
+
+</body>
+</html>
+
