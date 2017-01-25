@@ -5,9 +5,87 @@
 	<title>Название страницы</title>
     <script src='js/main.js'></script>
 </head>
+
+<style>
+    body {
+    	background: #da6458;
+    }
+    #clock{
+    	text-align: center;
+    	margin-top: 100px;
+    }
+	span, .start{
+		font-size: 60px;
+		margin-right: 20px;
+		display: inline-block;
+		box-shadow: 5px 5px 4px 0 #d34f42;
+		width: 100px;
+		font-family: Tahoma;
+		background: #ffe8e8;
+		padding: 20px;
+		border-radius: 10px;
+	}
+	.start{
+		display:block;
+		margin: 0 auto;
+		margin-top: 100px;
+		width: 200px;
+		text-align:center;
+		cursor: pointer;
+	}
+</style>
+
 <body>
   
+<div id="clock">
+  <span class="hour">hh</span>  <span class="hour">mm</span>  <span class="hour">ss</span>
+</div>
 
+<div class="start">
+    START
+</div>
+
+
+<script>
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+   }
+
+  function on() {
+	let clock = document.getElementById('clock');
+	let data = new Date();
+
+	let hour = data.getHours();
+	if ( hour < 10 ) hour = '0' + hour;
+	clock.children[0].innerHTML = hour;
+	clock.children[0].style.color = getRandomColor();
+	
+
+	let minutes = data.getMinutes();
+	if ( minutes < 10 ) minutes = '0' + minutes;
+	clock.children[1].innerHTML = minutes;
+	clock.children[1].style.color = getRandomColor();
+	
+
+	let second = data.getSeconds();
+	if ( second < 10 ) second = '0' + second;
+	clock.children[2].innerHTML = second;
+	clock.children[2].style.color = getRandomColor();
+  }
+
+  let start = document.body.querySelector('.start');
+
+  start.onclick = function clockStart() { 
+     setInterval(on, 1000);
+     on();
+  }
+  
+</script>
 
 </body>
 </html>
