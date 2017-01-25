@@ -24,15 +24,23 @@
 		background: #ffe8e8;
 		padding: 20px;
 		border-radius: 10px;
+
 	}
 	.start{
+		color: #da6458;
 		display:block;
 		margin: 0 auto;
 		margin-top: 100px;
 		width: 200px;
 		text-align:center;
 		cursor: pointer;
+		transition: 0.3s;
 	}
+	.start:hover {
+        color: #c1584d;
+        transition: 0.3s;
+	}
+	
 </style>
 
 <body>
@@ -62,15 +70,23 @@
 
 	let hour = data.getHours();
 	if ( hour < 10 ) hour = '0' + hour;
+	if (clock.children[0].innerHTML != hour) {
+       clock.children[0].style.color = getRandomColor();
+	}
 	clock.children[0].innerHTML = hour;
-	clock.children[0].style.color = getRandomColor();
+    
+
 	
 
 	let minutes = data.getMinutes();
 	if ( minutes < 10 ) minutes = '0' + minutes;
+	if (clock.children[1].innerHTML != minutes) {
+       clock.children[1].style.color = getRandomColor();
+	}
 	clock.children[1].innerHTML = minutes;
-	clock.children[1].style.color = getRandomColor();
 	
+
+
 
 	let second = data.getSeconds();
 	if ( second < 10 ) second = '0' + second;

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Название страницы</title>
+    <script src='js/main.js'></script>
+</head>
+<body>
+  
+
+<style>
+	li {
+		text-decoration: none;
+		list-style: none;
+		color: #bbb;
+		font-size: 40px;
+		font-family: Tahoma;
+	}
+</style>
+
+
+<ul id="list"></ul>
+
+
+<script>
+	let list = document.getElementById('list');
+	
+    while(true) {
+    	let data = prompt('Введите текст', 0);
+        let newData = '- ' + data;
+    	
+    	if(!data) {
+    		break
+    	}
+
+    	var li = document.createElement('li');
+        li.appendChild(document.createTextNode(newData));
+        list.appendChild(li)
+    }
+    
+</script>
+
+</body>
+</html>
+
