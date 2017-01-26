@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Название страницы</title>
+    <script src='js/main.js'></script>
+</head>
+<body>
+  
+ 
+
+
+<script>
+   var link = document.createElement('a');
+   link.appendChild(document.createTextNode('нажми меня'));
+
+   link.style.cssText = "border-radius: 8px;\
+    border: 2px solid green;\
+    display: block; \
+    height: 30px;\
+    line-height: 30px;\
+    width: 100px;\
+    text-decoration: none;\
+    text-align: center;\
+    color: red;\
+    font-weight: bold;\
+   ";
+
+   // OR 
+   // var stl = link.style;
+
+   // stl.borderRadius = '8px';
+   // stl.border = '2px solid green';
+   // stl.display = 'block'; 
+   // stl.height = '30px';
+   // stl.lineHeight =  '30px';
+   // stl.width = '100px';
+   // stl.textDecoration = 'none';
+   // stl.textAlign = 'center';
+   // stl.color = 'red';
+   // stl.fontWeight = 'bold';
+
+   document.body.appendChild(link)
+</script>
+ 
+
+</body>
+</html>
+

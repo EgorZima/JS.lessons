@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Название страницы</title>
+    <script src='js/main.js'></script>
+</head>
+
+<style>
+  .notification {
+  position: fixed;
+  z-index: 1000;
+  padding: 5px;
+  border: 1px solid black;
+  font: normal 20px Georgia;
+  background: white;
+  text-align: center;
+}
+
+.welcome {
+  background: red;
+  color: yellow;
+}
+</style>
+
+<body>
+  
+ 
+<script>
+
+   var styles = {
+    top: 10,
+    right: 10,
+    html: "Привет",
+    className: "welcome"
+  }
+
+   function ShowNotification(options) {
+       var div = document.createElement('div');
+       
+       div.className = options.className || '';
+       div.style.top = (options.top + 'px') || 0 + 'px';
+       div.style.right = (options.right + 'px') || 0 + 'px';
+       div.innerHTML = options.html || ' ';
+    
+       
+       div.classList.add('notification');
+
+       document.body.appendChild(div);
+
+       setTimeout( () => {
+        document.body.removeChild(div)
+       }, 1000);
+   }
+   
+   ShowNotification(styles);
+
+</script>
+
+ 
+</body>
+</html>
+

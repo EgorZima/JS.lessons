@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Название страницы</title>
+    <script src='js/main.js'></script>
+</head>
+
+
+<body>
+  
+  <ul>
+    <li>1</li>
+    <li>2</li>
+  </ul>
+  
+
+<script>
+
+    var ul = document.body.querySelector('ul');
+    var li2 = ul.children[1];
+
+    setTimeout( () => { 
+      li2.insertAdjacentHTML('afterEnd', '<li>3</li><li>4</li><li>5</li>')
+    }, 500)
+
+</script>
+
+
+</body>
+</html>
+
