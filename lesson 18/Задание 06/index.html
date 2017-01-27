@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Название страницы</title>
+</head>
+
+<style>
+  .moving-div {
+    border: 5px groove green;
+    padding: 5px;
+    margin: 10px;
+    background-color: yellow;
+  }
+</style>
+
+
+<body>
+  Before Before Before
+
+<div class="moving-div">
+Text Text Text<br>
+Text Text Text<br>
+</div>
+
+After After After
+
+
+<script>
+  var div = document.querySelector('.moving-div');
+  div.style.position = 'absolute';
+  div.style.right = div.style.top = 0;
+
+  
+  var newElem = document.createElement('div');
+  
+  newElem.style.height = div.offsetHeight + 'px';
+  newElem.style.backgroundColor = '#aaa';
+  newElem.style.borderRadius = 10 + 'px';
+  newElem.style.boxShadow = "2px 2px 4px 2px #bbb"
+         
+
+  document.body.insertBefore(newElem, div)
+
+</script>
+
+
+</body>
+</html>
+

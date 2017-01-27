@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Название страницы</title>
+</head>
+<style>
+  .example {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;            
+    overflow: auto;             
+  }
+</style>
+
+
+
+<body>
+
+<div class="example">
+  <h5>..Текст..</h5> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos numquam maxime consequuntur? Quod quisquam a placeat temporibus, sapiente eaque nisi quos nesciunt, ratione laborum deserunt quidem recusandae blanditiis repellendus mollitia.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos numquam maxime consequuntur? Quod quisquam a placeat temporibus, sapiente eaque nisi quos nesciunt, ratione laborum deserunt quidem recusandae blanditiis repellendus mollitia.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos numquam maxime consequuntur? Quod quisquam a placeat temporibus, sapiente eaque nisi quos nesciunt, ratione laborum deserunt quidem recusandae blanditiis repellendus mollitia.</p>
+</div>
+
+
+<script>
+   var elem = document.body.querySelector('.example');
+   
+   var scroll = elem.offsetWidth - elem.clientWidth;
+   
+   console.log(scroll)
+   
+   
+</script>
+
+
+</body>
+</html>
+
