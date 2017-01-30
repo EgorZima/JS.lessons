@@ -4,7 +4,11 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/main.css">
 </head>
-
+<style>
+  body {
+    height: 2000px;
+  }
+</style>
 <body>
 
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit sint atque dolorum fuga ad incidunt voluptatum error fugiat animi amet! Odio temporibus nulla id unde quaerat dignissimos enim nisi rem provident molestias sit tempore omnis recusandae
@@ -28,13 +32,17 @@
           elem.style.left = coords.left + 'px';
           elem.style.top = coords.top - elem.offsetHeight +'px';
        } 
-       if ( position === 'right' ) {
+       else if ( position === 'right' ) {
           elem.style.left = coords.right + 'px';
           elem.style.top = coords.top + 'px';
        } 
        else if (position === 'bottom') {
           elem.style.left = coords.left + 'px';
           elem.style.top = coords.bottom + 'px';
+       }
+       else if (position === 'bottom-in') {
+          elem.style.left = coords.left + 'px';
+          elem.style.top = coords.bottom - elem.clientHeight + 'px';
        }
     }
 
@@ -44,14 +52,15 @@
       note.innerHTML = html;
       document.body.appendChild(note);
 
-      positionAt(mainElem, position, note)
+      positionAt(mainElem, position, note);
+      note.style.position = 'absolute'
     }
 
 
     showNote(quote, "top", "заметка сверху");
     showNote(quote, "right", "заметка справа");
-    showNote(quote, "bottom", "заметка снизу");
-
+    // showNote(quote, "bottom", "заметка снизу");
+     showNote(quote, "bottom-in", "заметка снизу");
    
   </script>
 

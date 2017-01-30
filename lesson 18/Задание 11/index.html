@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+</head>
+<style>
+  
+  p {
+    font-size: 40px;
+    font-family: Tahoma
+  }
+
+</style>
+<body>
+
+<div>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid voluptatibus eligendi rerum consequuntur, ea adipisci cumque at ratione non explicabo nihil voluptas tempore necessitatibus cum blanditiis ab molestias, officia obcaecati!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid voluptatibus eligendi rerum consequuntur, ea adipisci cumque at ratione non explicabo nihil voluptas tempore necessitatibus cum blanditiis ab molestias, officia obcaecati!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid voluptatibus eligendi rerum consequuntur, ea adipisci cumque at ratione non explicabo nihil voluptas tempore necessitatibus cum blanditiis ab molestias, officia obcaecati!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid voluptatibus eligendi rerum consequuntur, ea adipisci cumque at ratione non explicabo nihil voluptas tempore necessitatibus cum blanditiis ab molestias, officia obcaecati!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid voluptatibus eligendi rerum consequuntur, ea adipisci cumque at ratione non explicabo nihil voluptas tempore necessitatibus cum blanditiis ab molestias, officia obcaecati!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid voluptatibus eligendi rerum consequuntur, ea adipisci cumque at ratione non explicabo nihil voluptas tempore necessitatibus cum blanditiis ab molestias, officia obcaecati!</p>
+</div>
+  
+
+
+<script>
+    function getDocumentScroll() {
+      
+      var scrollHeight = Math.max(
+          document.body.scrollHeight, document.documentElement.scrollHeight,
+          document.body.offsetHeight, document.documentElement.offsetHeight,
+          document.body.clientHeight, document.documentElement.clientHeight
+      );
+
+      var coords = {
+          top: pageYOffset,
+          bottom: pageYOffset + document.documentElement.clientHeight,
+          height: scrollHeight
+      }
+      
+      return coords;
+    }
+
+    console.log( getDocumentScroll() );
+
+
+    
+</script>
+
+
+</body>
+
+</html>
