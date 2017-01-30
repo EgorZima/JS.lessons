@@ -31,7 +31,7 @@
     var elem = document.getElementById("elem");
     var style = getComputedStyle(elem);
 
-    var width  = (document.body.clientWidth) - parseInt(style.paddingLeft) - parseInt(style.paddingLeft) ;
+    var width  = (document.body.clientWidth) - parseInt(style.paddingLeft) - parseInt(style.paddingRight) ;
   
     elem.style.width = width + 'px';
   </script>

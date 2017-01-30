@@ -1,0 +1,20 @@
+.note {
+  position: fixed;
+  z-index: 1000;
+  padding: 5px;
+  border: 1px solid black;
+  background: #aaa;
+  text-align: center;
+  font: italic 14px Georgia;
+}
+
+blockquote {
+  background: lightgreen;
+  border-left: 10px solid #ccc;
+  margin: 0 0 0 100px;
+  padding: .5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+  display: inline-block;
+  white-space: pre;
+}
+
