@@ -1,0 +1,61 @@
+.slider {
+	
+}
+.slider-images {
+	width: 940px;
+	margin: 0 auto;
+	overflow: hidden;
+	width: 940px;
+	height: 500px;
+}
+.images-wrap {
+   white-space: nowrap;
+   font-size: 0;
+   height: 500px;  
+}
+img {
+	width: 940px;
+	height: 500px;
+}
+
+.navigation {
+	width: 940px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+.arrow {
+	color: #000;
+	text-decoration: none;
+}
+.arrow-previous {
+	float: left;
+}
+.arrow-next {
+	float: left;
+	margin-left: 4px;
+}
+
+.slider a:hover {
+	color:#368499;
+	transition: 0.2s;
+} 
+.slider-pagination {
+   float: right;
+   list-style: none;
+   margin:0;
+}
+.slider-pagination li {
+	float: left;
+}
+.slider-pagination li a {
+	display: block;
+	width: 24px;
+	height: 24px;
+	margin-left: 4px;
+	background-image: url('../img/circles.png');
+	background-position: 29px 29px;
+}
+.slider-pagination li a:hover {
+	background-position: -5px 29px;
+	transition: 0s;
+}
