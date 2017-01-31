@@ -1,18 +1,18 @@
-.slider {
-	
-}
 .slider-images {
-	width: 940px;
 	margin: 0 auto;
 	overflow: hidden;
 	width: 940px;
 	height: 500px;
+	border-radius: 20px;
 }
+
 .images-wrap {
    white-space: nowrap;
    font-size: 0;
    height: 500px;  
+   transition: 0.6s;
 }
+
 img {
 	width: 940px;
 	height: 500px;
@@ -23,13 +23,16 @@ img {
 	margin: 0 auto;
 	margin-top: 10px;
 }
+
 .arrow {
 	color: #000;
 	text-decoration: none;
 }
+
 .arrow-previous {
 	float: left;
 }
+
 .arrow-next {
 	float: left;
 	margin-left: 4px;
@@ -44,9 +47,11 @@ img {
    list-style: none;
    margin:0;
 }
+
 .slider-pagination li {
 	float: left;
 }
+
 .slider-pagination li a {
 	display: block;
 	width: 24px;
@@ -55,6 +60,7 @@ img {
 	background-image: url('../img/circles.png');
 	background-position: 29px 29px;
 }
+
 .slider-pagination li a:hover {
 	background-position: -5px 29px;
 	transition: 0s;
