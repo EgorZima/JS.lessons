@@ -25,11 +25,10 @@
      <a href="#" class="arrow arrow-previous"> <i class="fa fa-chevron-left fa-lg"></i> </a>
      <a href="#" class="arrow arrow-next"> <i class="fa fa-chevron-right fa-lg"></i> </a>
 
-     <ul class="slider-pagination">
-         <li class="slider-pagination-item"> <a href="#" slider-item="0"></a></li>
-         <li class="slider-pagination-item"> <a href="#" slider-item="1"></a></li>
-         <li class="slider-pagination-item"> <a href="#" slider-item="2"></a></li>
-         <li class="slider-pagination-item"> <a href="#" slider-item="3"></a></li>
+     <ul class="slider-pagination">  
+
+         <li class="slider-pagination-item"> <a href="#" data-slider-item=""></a></li>
+         
      </ul>
 
   </div>
@@ -43,7 +42,8 @@
 <script>
 
   new Slider('.slider', {
-    currentImg: 3;
+    currentImg: 0,
+    direction: 'horizontal'
   })
 
 </script>

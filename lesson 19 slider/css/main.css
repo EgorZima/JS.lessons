@@ -10,7 +10,6 @@
    white-space: nowrap;
    font-size: 0;
    height: 500px;  
-   transition: 0.6s;
 }
 
 img {
@@ -60,7 +59,11 @@ img {
 	background-image: url('../img/circles.png');
 	background-position: 29px 29px;
 }
+.slider-pagination li a.active {
+	background-image: url('../img/circles.png');
+	background-position: -5px 29px;
 
+}
 .slider-pagination li a:hover {
 	background-position: -5px 29px;
 	transition: 0s;
