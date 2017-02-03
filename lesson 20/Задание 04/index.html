@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/main.css"> 
+</head>
+<body>
+
+ 
+ <ul class="tree">
+    <li>Животные
+      <ul>
+        <li>Млекопитающие
+          <ul>
+            <li>Коровы</li>
+            <li>Ослы</li>
+            <li>Собаки</li>
+            <li>Тигры</li>
+          </ul>
+        </li>
+        <li>Другие
+          <ul>
+            <li>Змеи</li>
+            <li>Птицы</li>
+            <li>Ящерицы</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Рыбы
+      <ul>
+        <li>Аквариумные
+          <ul>
+            <li>Гуппи</li>
+            <li>Скалярии</li>
+          </ul>
+
+        </li>
+        <li>Морские
+          <ul>
+            <li>Морская форель</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+
+<script>
+
+ var tree = document.querySelector('.tree');
+ var treeLis = tree.querySelectorAll('li');
+
+ for (var i = 0; i < treeLis.length; i++) {
+  var li = treeLis[i];
+
+  var span = document.createElement('span');
+  li.insertBefore(span, li.firstChild);
+  span.appendChild(span.nextSibling)
+ }
+
+  tree.onclick = function(event) {
+    var target = event.target;
+
+    if (target.tagName != 'SPAN') {
+      return
+    }
+
+    var parent = target.parentNode.getElementsByTagName('ul')[0];
+    parent.classList.toggle('hide')
+  }
+
+
+</script>
+</body>
+</html>

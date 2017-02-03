@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/main.css"> 
+</head>
+<body>
+
+
+  Кликните на любое место поля, чтобы мяч перелетел туда.
+  <br> Мяч никогда не вылетит за границы поля.
+
+
+  <div id="field">
+    <img src="https://js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+  </div>
+
+
+<script>
+  var field = document.querySelector('#field');
+  var ball = document.querySelector('#ball');
+  ball.style.transition = '0.4s'
+  
+  
+  field.onclick = function(e) {
+
+    fieldCoords = field.getBoundingClientRect();
+
+    fieldInnerCoords = {
+      top: fieldCoords.top + field.clientTop,
+      left: fieldCoords.left + field.clientLeft
+      }
+
+    console.log(e.clientY)
+    
+    var ballCoords = {
+        top: e.clientY - fieldInnerCoords.top - ball.clientHeight / 2,
+        left: e.clientX - fieldInnerCoords.left - ball.clientWidth / 2
+      };
+
+    
+      if (ballCoords.top < 0) ballCoords.top = 0;
+
+      if (ballCoords.left < 0) ballCoords.left = 0;
+
+      if (ballCoords.left + ball.clientWidth > field.clientWidth) {
+        ballCoords.left = field.clientWidth - ball.clientWidth;
+      }
+
+      if (ballCoords.top + ball.clientHeight > field.clientHeight) {
+        ballCoords.top = field.clientHeight - ball.clientHeight;
+      }
+
+
+
+      ball.style.left = ballCoords.left + 'px';
+      ball.style.top = ballCoords.top + 'px';
+  }
+
+ 
+
+
+</script>
+</body>
+</html>
