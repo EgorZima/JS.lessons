@@ -1,0 +1,16 @@
+.news-item {
+  width: 700px;
+  margin:0 auto;
+  background: #ddd;
+  border-bottom: 2px dashed #aaa;
+  margin-top: 20px;
+}
+.news-item .title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+img {
+  width: 250px;
+  height: 250px;
+}

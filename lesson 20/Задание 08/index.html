@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/main.css"> 
+</head>
+<body>
+ 
+ 
+<div class="matrix">
+    <script>
+      for (var i = 0; i < 2000; i++) document.writeln(i)
+    </script>
+  </div>
+
+  <div id="up">↑</div>
+
+
+<script>
+    var upElem = document.querySelector('#up');
+    
+    window.onscroll = function() {
+      var pageY = window.pageYOffset;
+      var innerHeight = document.documentElement.clientHeight;
+
+      if( pageY > innerHeight ) {
+        if (upElem.className === '') {
+          upElem.className = 'show';
+        } 
+      }
+
+      if( pageY < innerHeight) {
+        if (upElem.className === 'show') {
+          upElem.className = '';
+        } 
+      }
+
+    }
+
+    upElem.onclick = function() {
+        
+      window.scrollTo(0, 0);
+
+    }
+
+    
+
+    
+
+</script>
+
+
+</body>
+</html>

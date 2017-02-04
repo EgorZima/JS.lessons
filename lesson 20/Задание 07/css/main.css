@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.header {
+  line-height: 60px;
+  background: yellow;
+}
+.column-left {
+  float: left;
+  width: 30%;
+  background: #ccc;
+}
+.column-right {
+  margin-left: 30%;
+  width: 70%;
+  background: lightgreen;
+  overflow: auto;
+}
+.inner {
+  margin: 10px;
+  font-size: 130%;
+}
+.avatar {
+  float: left;
+  margin: 10px;
+  border: 1px solid black;
+  text-align: center;
+  background: #ccc;
+}
+
+img{
+  transition: 1s;
+  width: 200px;
+  height:150px;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.fixed   img{
+  width: 470px;
+  height: 250px;
+  transition: 1s
+}
