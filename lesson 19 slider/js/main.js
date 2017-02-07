@@ -13,7 +13,7 @@ function Slider(selector, options) {
  
   sliderImagesNode.style.transition = '0.7s';
 
-  console
+ 
   //Автоматическое создание точек по количеству картинок
   function createPaginationItem() {
    	paginationNode.querySelector('a').dataset.sliderItem = 0;

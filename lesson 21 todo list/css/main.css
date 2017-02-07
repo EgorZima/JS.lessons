@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  padding:0;
+  font-family: Tahoma;
+}
+
+.wrap {
+   width: 500px;
+   margin:0 auto;
+}
+
+header {
+  border-bottom: 2px solid #eee;
+  margin-bottom: 20px
+}
+h1 {
+  font-size: 50px;
+  font-weight: normal; 
+  display: block;
+}
+
+.panel {
+  border-radius: 5px;
+  border: 2px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.panel-heading {
+  background: #eee;
+  padding: 10px;
+  border-bottom: 2px solid #ddd;;
+  font-family: Tahoma;
+  font-weight: bold; 
+  font-size: 14px;
+}
+
+.panel-buttons {
+  padding: 14px;
+}
+.task-form-text {
+  width: 130px;
+  line-height: 19px;
+  border: 1px solid #ddd;
+}
+.form-submit {
+  background: #6495ED;
+  color: #fff;
+  outline: none;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 4px;
+  transition: 0.1s;
+}
+.form-submit:hover {
+  background: #4169E0;
+  transition: 0.1s;
+}
+
+.table {
+  display: block;
+}
+.table-body {
+  display: block;
+  width: 500px;
+
+}
+thead{
+  display: block;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.one-task {
+  display: block;
+  background: #F5F5F5;
+  border-top: 1px solid #ddd;  
+  padding: 8px;
+
+
+}
+.one-task .task-text {
+  width: 400px;
+}
+
+.button{
+  padding: 8px 12px;
+  outline: none;
+  float: right;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  transition: 0.1s;
+}
+
+.btn-info {
+  background: #6495ED
+}
+
+.btn-remove {
+  margin-left: 20px;
+  background: #DC143C
+}
+
+.btn-info:hover {
+  background: #4169E0;
+  transition: 0.1s;
+}
+.btn-remove:hover{
+  background:  #FF4500;
+  transition: 0.1s;
+} 
