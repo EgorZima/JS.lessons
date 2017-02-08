@@ -78,8 +78,13 @@ thead{
 
 
 }
-.one-task .task-text {
-  width: 400px;
+.task-text p{
+  display: block;
+  margin:0;
+  word-wrap: break-word;
+  width:390px;
+  padding: 0;
+  padding-left: 10px;
 }
 
 .button{

@@ -1,14 +1,28 @@
-$( function() {
+(function() {
 	
 	class ToDo {
      constructor() {
        this.model = []
 
-       this.inputFiend = $('.task-form-text');
-	   this.form = $('.task-form');
-	   this.todoList = $('.table-body')
+       this.inputFiend = document.querySelector('.task-form-text');
+	   this.form = document.querySelector('.task-form');
+	   this.todoList = document.querySelector('.table-body');
 
-	   this.init();
+
+	   this.todoList.onclick = function(e) {
+            var target = e.target;
+            
+            if (!target.classList.contains('btn-remove') ) {
+            	return
+            }
+
+            var index = target.getAttribute('data-index');
+            
+            localStorage.removeItem(self.getLength());
+            self.removeItem(index);
+    	}
+
+    	this.init();
      }
 
     // Получить длину модели
@@ -20,15 +34,16 @@ $( function() {
     onFormSubmit(e) {
     	var self = this;
     	e.preventDefault();
-
-    	if(this.inputFiend.val().length === 0) {
-           return 
-    	}
+    	var value = this.inputFiend.value;
         
-        localStorage.setItem(this.getLength() + 1, this.inputFiend.val());
+        var newVal = value[0].toUpperCase() + value.slice(1);
+
+    	if( newVal.length === 0) return 
     	
-    	this.addItem( this.inputFiend.val() );
-    	this.form.trigger('reset');
+        localStorage.setItem(this.getLength() + 1, newVal);
+    	
+    	this.addItem( newVal );
+    	this.form.reset();
     };
 
     // Добавить новый елемент в массив объектов 
@@ -37,44 +52,47 @@ $( function() {
       this.model.push(newtoDo);
 
       this.appendItem(this.getLength(), newtoDo);
-   
 	}
 
     // Добавить в DOM
     appendItem(index, item) {
-	    this.todoList.append(this.getItemHtml(index, item.text));
+    	var tr = document.createElement('tr');
+        tr.className = 'one-task'
+        tr.innerHTML = this.getItemHtml(index, item.text);
+
+        this.todoList.appendChild(tr);
     }
 
     // Генерация HTML елемента
-	getItemHtml(position, item) {
-       var tmpl = '<tr class="one-task"> <th> :position </th><td class="task-text">:Text</td>  <td><button type="button" class="button btn-remove" data-index=":index" >X</button> </td></tr>'
+	getItemHtml(position, item) { 
+       var tmpl = '<tr class="one-task"> <th> :position </th><td class="task-text"><p>:Text</p></td> <td><button type="button" class="button btn-remove" data-index=":index">X</button> </td></tr>'
 	   
-	   return tmpl.replace(/:position/gi, position).replace(/:Text/gi, item).replace(/:index/gi, position - 1);
-	}
+	   return tmpl.replace(/:position/gi, position).replace(/:Text/gi, item).replace(/:index/gi, position - 1);    
+	} 
     
     // перерасчет порядкового номера и текста
     renderList() {
     	var list = '';
     	    self = this;
         
-    	$.each(this.model, function(index, item) {
-         list += self.getItemHtml(index + 1, item.text);
-         localStorage.setItem(index + 1, item.text);
-    	});
+    	for (var i = 0; i < this.model.length; i++) {
+            var item = this.model[i];
+           
+            list += self.getItemHtml(i + 1, item.text);
+            localStorage.setItem(i + 1, item.text);
+    	}
 
-    	this.todoList.html(list)
+    	this.todoList.innerHTML = list;
     }
     
     // удаление задания
     removeItem(index) {
         this.model.splice(index, 1);
-
         this.renderList();
     }
 
-  
     // показ данных сохраненных в localStorage
-    showTasks() {
+    showLocalStorageTasks() {
       var loLen = localStorage.length;
 
     	if (loLen != 0) {
@@ -89,29 +107,26 @@ $( function() {
     // Инициализация 
     init() {
         var self = this; 
+        this.showLocalStorageTasks();
 
-        this.showTasks();
-
-    	this.form.submit( function(e) {
+    	this.form.onclick =  function(e) {
+    		var target = e.target;
+            
+            if (target.className != 'form-submit' ) {
+            	return
+            }
             self.onFormSubmit(e)
-    	});
+    	};
 
     	this.renderList();
-
-    	this.todoList.on('click', '.btn-remove', function (e) {
-    		var index = $(e.target).data('index');
-
-    		localStorage.removeItem(self.getLength());
-    		self.removeItem(index);
-    	});
-	
+     }
 
     }
 
- 
-    };
 
     window.todo = new ToDo();
-})
+})()
+
+
 
 
