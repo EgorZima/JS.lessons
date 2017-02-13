@@ -14,33 +14,40 @@
       init() {
         var self = this;
 
-        this.getFeed('habr');
-        this.currentElem();
+        this.getFeed(this.getUrlHash());
 
+        this.currentMenuItem();
+        
         window.onhashchange = function(e) {
           self.articles.innerHTML = ' ';
-
-          self.getFeed(window.location.hash.replace('#', ''));
-          self.currentElem();
+          
+          self.getFeed(self.getUrlHash());
+          self.currentMenuItem();
         };         
       }
 
-      currentElem() {
+      currentMenuItem() {
         var links = this.menu.querySelectorAll('a');
            
         links.forEach(function(item, index) {
           item.classList.remove('current-link')
         });
-
-        var currentLink = window.location.hash.replace('#', '');
+        
+        var currentLink = this.getUrlHash();
         var elemMenu = 'menu-' + currentLink;
+
         var currentElem = this.menu.querySelector('.' + elemMenu);
-      
         currentElem.classList.add('current-link');
       }
-
+      
+      getUrlHash() {
+        var hash = window.location.hash || 'habr';
+        
+        return hash.replace('#', '');
+      }
 
       getFeed(feedId) {
+        var self = this;
           $.ajax({
             url: this.feedURL,
             data: {kind: feedId},
@@ -49,11 +56,19 @@
           })
           .done(this.onGetData.bind(this))
 	        .fail(function(error) {
-            console.log(error); 
+             self.showError(); 
           });
+
 	    }
 
+      showError() {
+        var error = document.querySelector('.error');
+        error.classList.remove('error-dis');
+      }
+
       onGetData(data) {
+        var error = document.querySelector('.error');
+        error.classList.add('error-dis');
         this.renderFeed(data.items);
       }
 
@@ -83,9 +98,11 @@
 
       var author = newItem.querySelector('.author');
       author.innerHTML = item.author;
+  
       
       var date = newItem.querySelector('.date');
       date.innerHTML = this.convertDate(item.pubDate);
+      
 
       var description = newItem.querySelector('.description');
       description.innerHTML = item.summary;
