@@ -1,0 +1,190 @@
+* {
+	margin:0;
+	padding: 0;
+	transition: 0.3s;
+}
+
+body {
+	background:#ebf3fa;
+    font-family: 'Acme', sans-serif;
+	list-style: none;
+}
+.wrap {
+	width: 1024px;
+	margin: 0 auto;
+}
+header {
+   background:#2b75b5; 
+   border-bottom: 5px solid #1565ab;
+}
+.logo {
+	display: block;
+	color: #f7fbff;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 30px;
+	padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.left-side {
+	width: 500px;
+	float: left;
+	margin-top: 100px;
+}
+
+.basket-icon  {
+   display: block;
+   width: 256px;
+   height: 256px;
+   background-image: url(../img/shopping-cart.png);
+   margin-left: 50px;
+   margin-bottom: 16px;
+}
+.left-side p {
+   margin-left: 60px;
+   font-size: 30px;
+   color: #6b6b6b;
+}
+
+
+.right-side {
+	float: right;
+	width: 500px;
+	margin-top: 100px;
+}
+.basket-list {
+	padding-bottom: 30px;
+	border-bottom: 2px solid #ddd;
+}
+.row {
+	background: #fffdfc;
+	margin-bottom: 10px;
+	padding-top: 14px;
+	padding-bottom: 14px;
+	list-style: none;
+	font-weight: bold;	
+}
+
+.list-line {
+	background: none;
+	font-size: 13px;
+	color:#8a8a8a;
+	padding: 0;
+}
+
+.list-line .qty {
+	padding-left: 8px;
+}
+.list-line .item {
+	padding-left: 28px;
+}
+.list-line .price {
+	float: right;
+	padding-right: 14px;
+}
+
+.cart__item-tmpl {
+	display: none;
+}
+.row .amount {
+	width: 30px;
+	display: inline-block;
+	padding-left: 5px;
+	text-align: center;
+	color: #418bcc;
+}
+.row .name {
+	padding-left: 24px;
+	color: #6b6b6b;
+}
+.row .cost {
+	float: right;
+	padding-right: 8px;
+	color: #ff5c40;	
+}
+
+.sum {
+	margin-top: 40px;
+	margin-left: 20px;
+	display: inline-block;
+}
+.total {
+
+	font-size: 20px; 
+	color: #8a8a8a;
+	padding-right: 6px;
+}
+.final-price {
+   font-size: 30px;
+   color: #ff5c40;
+   font-weight: bold;
+}
+
+.order{
+	display: inline-block;
+	width: 100px;
+	height:60px;
+	background: #ff765e;
+    color: #fffdfc;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 18px;
+    box-sizing: border-box;
+    margin-left: 200px;
+    transition: 0.3s;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.order:hover {
+	background: #ff5c40;
+	transition: 0.3s;
+}
+
+@media(max-width: 960px) {
+    .wrap {
+	width: 540px;
+   }
+
+   .left-side {
+	width: 200px;
+	margin-top: 50px;
+}
+ .basket-icon  {
+   display: block;
+   width: 128px;
+   height: 128px;
+   background-image: url(../img/shopping-cart-two.png);
+   margin-left: 30px;
+}
+.left-side p {
+   margin-left: 10px;
+   font-size: 20px;
+   color: #6b6b6b;
+}
+
+.right-side {
+	width: 300px;
+	margin-top: 50px;
+}
+.sum {
+	margin-top: 40px;
+	margin-left: 6px;
+}
+.total {
+	font-size: 16px; 
+}
+.final-price {
+   font-size: 26px;
+}
+.order{
+	margin-top: -24px;
+	width: 90px;
+	height:50px;	
+    font-size: 18px;
+    padding-top: 15px; 
+}
+
+}
+
