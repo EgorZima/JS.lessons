@@ -2,6 +2,7 @@
     
     class Cart {
     	constructor() {
+            this.lsFieldId = 'cart';
 
     		this.domElems = {
     			cart: document.querySelector('.cart'),
@@ -26,33 +27,26 @@
 
             }
 
-            this.catrArr = [
-                {
-         	        name: 'bag',
-         			price: '26',
-         		    qty: '3'
-         		},
-         		 {
-         	        name: 'watch',
-         			price: '200',
-         		    qty: '1'
-         		},
-
-         		{
-         			name: 'book',
-         			price: '18',
-         			qty: '5'
-         		},
-    		]
+            this.cartArr = '';
 
     		this.init()
 
     	}
 
 
+
+
+        
+
     	init() {
-           this.viewCart()
+           
+           window.ls.initField(this.lsFieldId);
+           this.viewCart();
     	}
+
+        updateStorage() {
+            window.ls.updateField(this.lsFieldId, this.cartArr);
+        }
 
     	viewCart() {
            this.getCartAmount();
@@ -65,7 +59,9 @@
     	}
 
     	getCatrItems() {
-           return this.catrArr;
+           this.cartArr = window.ls.getFieldData(this.lsFieldId);
+
+           return this.cartArr;
         }
 
     	viewTotalPrice() {
@@ -126,10 +122,10 @@
             return div;
 
         }
-        
- 
+    
         addToCart(item) {
-        	this.catrArr.push(item);
+        	this.cartArr.push(item);
+            this.updateStorage();
         	this.viewCart();
         }
 
