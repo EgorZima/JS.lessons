@@ -7,7 +7,7 @@
 
     	initField(fieldId) {
             if (!this.ls[fieldId]) {
-                this.clearField(fieldId);
+                this.makeField(fieldId);
             }
     	}
 
@@ -19,7 +19,7 @@
        		this.ls[fieldId] = JSON.stringify(data);
     	}
 
-    	clearField(fieldId) {
+    	makeField(fieldId) {
     		this.ls[fieldId] = '[]';
     	}
     }
