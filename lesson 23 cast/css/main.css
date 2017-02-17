@@ -17,8 +17,9 @@ header {
    background:#2b75b5; 
    border-bottom: 5px solid #1565ab;
 }
+
 .logo {
-	display: block;
+	display: inline-block;
 	color: #f7fbff;
 	font-weight: bold;
 	text-decoration: none;
@@ -27,6 +28,35 @@ header {
     padding-bottom: 20px;
 }
 
+.header-cart {
+	display: inline-block;
+	float: right;
+	width: 64px;
+	height: 70px;
+	float: right;
+	padding-top: 10px;
+	position: relative;
+}
+.header-cart .cart-icon {
+	display: block;
+	width: 64px;
+	height: 64px;
+	background-image: url('../img/shopping-cart.png')
+}
+.amt {
+	position: absolute;
+	right: 0;
+	width: 24px;
+	height: 24px;
+	color:#f7fbff;
+	text-align: center;
+	border-radius: 50%;
+	background:#36cc00;
+}
+
+.amt-display {
+	display: none;
+}
 .left-side {
 	width: 500px;
 	float: left;
@@ -183,6 +213,58 @@ header {
 .order:hover {
 	background: #ff5c40;
 	transition: 0.3s;
+}
+
+.notification-display {
+	display: none;
+}
+.notification{
+	width: 800px;
+	margin: 0 auto;
+}
+.notification-block{
+	position: fixed;
+	margin-top: 50px;
+	width: 800px;
+    height: 500px;
+    background: #171717;
+    box-shadow: 4px 4px 2px 3px #404040;
+    opacity: .8;
+    z-index: 100;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 40px;
+    padding-top: 180px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.cross {
+	position: absolute;
+	right: 10px;
+	top: 6px;
+	cursor: pointer;
+	color: red;
+}
+.order-list-one, .order-list-two {
+   color: #ff3352;
+}
+.corfirm {
+	outline: none;
+	border: none;
+	color: #000;
+    font-weight: bold;
+    font-size: 20px;
+    padding:20px;
+    margin-top: 50px;
+	background: #ff3352;
+}
+.corfirm:hover {
+   background: #000;
+   color: #ff3352;
+   border-radius: 4px;
+}
+.to-blur{
+   filter: blur(10px);
 }
 
 @media(max-width: 960px) {

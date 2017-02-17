@@ -3,20 +3,47 @@
     class Cart {
     	constructor() {
             this.lsFieldId = 'cart';
-
+            this.content = document.querySelector('.content')
     		this.domElems = {
     			cart: document.querySelector('.cart'),
     			listLine: document.querySelector('.list-line'),
                 cartTmpl:document.querySelector('.cart__item-tmpl'),
     			finalPrice: document.querySelector('.final-price'),
-    			orderButton: document.querySelector('.order'),   
+    			orderButton: document.querySelector('.order'),
+                amt: document.querySelector('.amt'),
+                notifi: document.querySelector('.notification'),
+                notifiBlock: document.querySelector('.notification-block'),
+                goods: document.querySelector('.goods'),
+                cross: document.querySelector('.cross')
     		}
+           
+            this.domElems.notifiBlock.onmouseover = () => {
+                this.domElems.notifiBlock.style.opacity = 0.9;
+                this.content.classList.add('to-blur');
+            }
 
-    		this.goods = document.querySelector('.goods')
+            this.domElems.notifiBlock.onmouseout = () => {
+                this.domElems.notifiBlock.style.opacity = 0.8;
+                this.content.classList.remove('to-blur');
+            }
+
+    		this.domElems.cross.onclick = () => {
+                this.domElems.notifi.classList.add('notification-display')
+            }
             
             
+            this.domElems.orderButton.onclick = () => {
+                this.domElems.notifi.classList.remove('notification-display');
+                
+                let items = this.domElems.notifi.querySelector('.order-list-one');
+                items.innerHTML = this.getCartAmount();
 
-            this.goods.onclick = (e) => {
+                let orderPrice = this.domElems.notifi.querySelector('.order-list-two');
+                orderPrice.innerHTML = '$' + this.getTotalPrice();
+
+            }
+
+            this.domElems.goods.onclick = (e) => {
             	e.preventDefault();
                 let target = e.target;
 
@@ -34,22 +61,27 @@
          	    this.addToCart(item)
 
             }
-
+            
             this.cartArr = [];
-
+            
     		this.init()
 
     	}
 
 
-
-
-        
-
     	init() {
            window.ls.initField(this.lsFieldId);
+
+           this.showAmt(this.getCatrItems());
+
            this.viewCart();
     	}
+        showAmt(arr) {
+            if (arr.length > 0) {
+               this.domElems.amt.style.display = 'block';
+               this.domElems.amt.innerHTML = arr.length;
+            }
+        }
 
         updateStorage() {
             window.ls.updateField(this.lsFieldId, this.cartArr);
@@ -138,58 +170,24 @@
                 this.checkId(item);
             }
             
+            this.showAmt(this.cartArr);
             this.updateStorage();
         	this.viewCart();
         }
 
         checkId(item) {
-            let id = item.id;
-            let current = item;
+            let arr = this.cartArr;
+
+            let index = arr.findIndex(i => i.id === item.id);
             
-            // if ( this.cartArr.indexOf(current) === -1) {
-            //    this.cartArr.push(current);
-               
-            // } 
-            // console.log(this.cartArr)
-
-            // else if (this.cartArr.indexOf(current) === 1) {
-            //   console.log( id )
-            // }
-            console.log(this.cartArr);
-
-            this.cartArr.some( item => {
-                if (item.id === id) {
-                    item.qty++; 
-                    return;   
-                } 
-
-                else if( item != current) {
-                    this.cartArr.push(current);
-
-               }
-               
-            })
+            if (index < 0) {
+                arr.push(item);
+                return
+            }
+            
+            arr[index].qty++;       
               
         }
-
-
-
-        
-            
-            
-
-          
-            
-       
-            
-            
-
-        
-
-
-
-    
-
 
 
     }
