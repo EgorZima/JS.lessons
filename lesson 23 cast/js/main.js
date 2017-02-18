@@ -19,6 +19,30 @@
                 cross: document.querySelector('.cross')
     		}
 
+            
+
+            this.domElems.goods.onmouseover = (e) => {
+                let target = e.target;
+
+                if (!target.classList.contains('icon')) return;
+
+                let parent = target.parentNode;
+
+                parent.lastElementChild.classList.remove('info-display')  
+
+            }
+
+            this.domElems.goods.onmouseout = (e) => {
+                let target = e.target;
+                
+                if (!target.classList.contains('icon')) return;
+
+                let parent = target.parentNode;
+
+                parent.lastElementChild.classList.add('info-display')  
+
+            }
+
 
 
             this.domElems.goods.onclick = (e) => {

@@ -8,10 +8,13 @@ body {
 	background:#ebf3fa;
     font-family: 'Acme', sans-serif;
 	list-style: none;
+	overflow-x: hidden;
 }
+
 .wrap {
 	width: 1024px;
 	margin: 0 auto;
+
 }
 header {
    background:#2b75b5; 
@@ -41,7 +44,12 @@ header {
 	display: block;
 	width: 64px;
 	height: 64px;
-	background-image: url('../img/shopping-cart.png')
+	background-image: url('../img/sprite.png');
+	background-position: -779px -5px;
+}
+.cart-icon:hover {
+	background-position: -853px -5px;
+	transition: .5s;
 }
 .amt {
 	position: absolute;
@@ -85,39 +93,69 @@ header {
 	font-weight: bold;
 }
 .basket-icon .add {
+	position: absolute;
 	display: block;
 	width: 32px;
 	height:32px;
-	background-image: url('../img/plus.png');
-	position: absolute;
+	background-image: url('../img/sprite.png');
+	background-position: -429px -5px;
 	bottom: 4px;
 	right: 4px;
-	transition: 0.3s;
+	transition: 0s;
 }
 .basket-icon .add:hover {
-	background-image: url('../img/plus-two.png');
-	transition: 0.2s;
+	background-position: -523px -5px;
+	transition: 0s;
+
 }
-.basket-icon .icon {
+.icon {
     display: block;
-    margin-top: 10px;
-	width: 190px;
-	height: 160px;
-	margin:0 auto;
-	background-position: 34px; ;
+    margin: 0 auto;
+	margin-top: 16px;
 	background-repeat: no-repeat;
 }
+.glasses  {
+	margin-top: 60px;
+}
+ .shoes  {
+	margin-top: 50px;
+}
+
+.glasses, .shoes, .phone, .watch  {
+	width: 82px;
+	height: 128px;
+	background-image: url('../img/sprite.png');	
+}
+
 .glasses {
-	background-image: url('../img/glasses.png');	
+	width: 128px;
+	background-position: -5px -47px;
 }
 .shoes {
-	background-image: url('../img/shoe.png');
+	width: 128px;
+	background-position: -565px -30px;
 }
 .phone {
-	background-image: url('../img/phone.png');
+	width: 72px;
+	background-position: -245px -5px;
 }
 .watch {
-	background-image: url('../img/watch.png');
+	background-position: -948px -5px;
+}
+.info {
+	background:#171717;;
+	position: absolute;
+	left: 160px;
+	top:10px;
+	padding: 50px 50px;
+	border-radius: 10px;
+	opacity: 0.9;
+	color: #fff;
+	font-size: 20px;
+	z-index: 100;
+}
+.info-display {
+	display: none;
 }
 
 
@@ -127,7 +165,7 @@ header {
 	margin-top: 100px;
 }
 .basket-list {
-	padding-bottom: 30px;
+	padding-bottom: 50px;
 	border-bottom: 2px solid #ddd;
 }
 .row {
@@ -210,15 +248,13 @@ header {
 
 .order{
 	display: inline-block;
+	padding:20px;
 	float: right;
-	width: 100px;
-	height:60px;
 	background: #ff765e;
     color: #fffdfc;
     font-size: 20px;
     text-decoration: none;
     text-align: center;
-    padding-top: 18px;
     box-sizing: border-box;    
     transition: 0.3s;
     border-radius: 4px;
@@ -247,7 +283,7 @@ header {
     z-index: 100;
     border-radius: 20px;
     color: #fff;
-    font-size: 40px;
+    font-size: 36px;
     padding-top: 180px;
     box-sizing: border-box;
     text-align: center;
@@ -281,7 +317,7 @@ header {
    filter: blur(10px);
 }
 
-@media(max-width: 960px) {
+@media(max-width: 1024px) {
 .wrap {
 	width: 540px;
 }
@@ -305,29 +341,50 @@ header {
 .basket-icon .add {
 	width: 16px;
 	height:16px;
-	background-image: url('../img/plus-media.png');
+	background-image: url('../img/sprite.png');
+	background-position: -497px -5px;
 	bottom: 4px;
 	right: 4px;
 }
 .basket-icon .add:hover {
-	background-image: url('../img/plus-media-two.png');
+	background-image: url('../img/sprite.png');
+	background-position: -471px -5px;
 }
-.basket-icon .icon {
-	width: 90px;
-	height: 80px;
-	background-position: 14px; 
-}
+
 .glasses {
-	background-image: url('../img/glasses-media.png');	
+	background-image: url('../img/sprite.png');	
+	background-position: -143px -26px;
+	width: 64px;
+	height: 23px;
+	margin-top: 36px;
 }
 .shoes {
-	background-image: url('../img/shoe-media.png');
+	background-image: url('../img/sprite.png');
+	background-position: -703px -17px;
+	width: 64px;
+	height: 40px;
+	margin-top: 24px;
+	
 }
 .phone {
-	background-image: url('../img/phone-media.png');
+	background-image: url('../img/sprite.png');
+	background-position: -369px -5px;
+	width: 36px;
+	height: 64px;
+	margin-top: 10px;
 }
 .watch {
-	background-image: url('../img/watch-media.png');
+	background-image: url('../img/sprite.png');
+	background-position: -1074px -5px;
+	width: 42px;
+	height: 64px;
+	margin-top: 10px;
+}
+
+.info {
+	left: 80px;	
+	padding: 30px 30px;
+	font-size: 18px;
 }
 
 .right-side {
@@ -345,13 +402,8 @@ header {
    font-size: 26px;
 }
 .order{
-	margin-top: -24px;
-	width: 90px;
-	height:50px;	
-    font-size: 18px;
-    padding-top: 15px; 
+	padding:10px;
 }
-
 
 }
 
