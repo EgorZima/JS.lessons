@@ -224,6 +224,9 @@
         removeItem(index) {
             if (this.cartArr[index].qty > 1) {
                this.cartArr[index].qty--;
+               
+               this.updateStorage();
+               this.init();
                return
             } 
             
