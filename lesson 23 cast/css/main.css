@@ -155,7 +155,7 @@ header {
 }
 .list-line .price {
 	float: right;
-	padding-right: 14px;
+	padding-right: 40px;
 }
 
 .cart__item-tmpl {
@@ -176,6 +176,20 @@ header {
 	float: right;
 	padding-right: 8px;
 	color: #ff5c40;	
+}
+.delete-item { 
+    background: #e80c0c;
+    cursor: pointer;
+    margin-top: -2px;
+    margin-right: 10px;
+    text-align: center;
+    padding: 2px 6px;
+    color: #fffafa;
+    border-radius: 4px;
+    float: right;
+}
+.delete-item:hover{
+	background:#f00;
 }
 
 .sum {
@@ -228,7 +242,7 @@ header {
 	width: 800px;
     height: 500px;
     background: #171717;
-    box-shadow: 4px 4px 2px 3px #404040;
+    box-shadow: 2px 2px 10px 0px #404040;
     opacity: .8;
     z-index: 100;
     border-radius: 20px;
@@ -241,7 +255,7 @@ header {
 .cross {
 	position: absolute;
 	right: 10px;
-	top: 6px;
+	top: 2px;
 	cursor: pointer;
 	color: red;
 }
@@ -268,25 +282,52 @@ header {
 }
 
 @media(max-width: 960px) {
-    .wrap {
+.wrap {
 	width: 540px;
-   }
+}
 
-   .left-side {
+.left-side {
 	width: 200px;
 	margin-top: 50px;
 }
- .basket-icon  {
-   display: block;
-   width: 128px;
-   height: 128px;
-   background-image: url(../img/shopping-cart-two.png);
-   margin-left: 30px;
+.basket-icon  {
+   display: inline-block;
+   width: 92px;
+   height: 100px;
+   margin-left: 6px;
+   margin-bottom: 6px;
+   background:#f0f6fc;
 }
-.left-side p {
-   margin-left: 10px;
-   font-size: 20px;
-   color: #6b6b6b;
+.basket-icon span {
+	right: 26px;
+	font-size: 15px;
+}
+.basket-icon .add {
+	width: 16px;
+	height:16px;
+	background-image: url('../img/plus-media.png');
+	bottom: 4px;
+	right: 4px;
+}
+.basket-icon .add:hover {
+	background-image: url('../img/plus-media-two.png');
+}
+.basket-icon .icon {
+	width: 90px;
+	height: 80px;
+	background-position: 14px; 
+}
+.glasses {
+	background-image: url('../img/glasses-media.png');	
+}
+.shoes {
+	background-image: url('../img/shoe-media.png');
+}
+.phone {
+	background-image: url('../img/phone-media.png');
+}
+.watch {
+	background-image: url('../img/watch-media.png');
 }
 
 .right-side {
@@ -310,6 +351,7 @@ header {
     font-size: 18px;
     padding-top: 15px; 
 }
+
 
 }
 

@@ -3,48 +3,26 @@
     class Cart {
     	constructor() {
             this.lsFieldId = 'cart';
-            this.content = document.querySelector('.content')
+            this.cartArr = [];
+                 
     		this.domElems = {
+                amt: document.querySelector('.amt'),
+                content: document.querySelector('.content'),
+                goods: document.querySelector('.goods'),
     			cart: document.querySelector('.cart'),
     			listLine: document.querySelector('.list-line'),
                 cartTmpl:document.querySelector('.cart__item-tmpl'),
     			finalPrice: document.querySelector('.final-price'),
-    			orderButton: document.querySelector('.order'),
-                amt: document.querySelector('.amt'),
+    			orderButton: document.querySelector('.order'),        
                 notifi: document.querySelector('.notification'),
                 notifiBlock: document.querySelector('.notification-block'),
-                goods: document.querySelector('.goods'),
                 cross: document.querySelector('.cross')
     		}
-           
-            this.domElems.notifiBlock.onmouseover = () => {
-                this.domElems.notifiBlock.style.opacity = 0.9;
-                this.content.classList.add('to-blur');
-            }
 
-            this.domElems.notifiBlock.onmouseout = () => {
-                this.domElems.notifiBlock.style.opacity = 0.8;
-                this.content.classList.remove('to-blur');
-            }
 
-    		this.domElems.cross.onclick = () => {
-                this.domElems.notifi.classList.add('notification-display')
-            }
-            
-            
-            this.domElems.orderButton.onclick = () => {
-                this.domElems.notifi.classList.remove('notification-display');
-                
-                let items = this.domElems.notifi.querySelector('.order-list-one');
-                items.innerHTML = this.getCartAmount();
-
-                let orderPrice = this.domElems.notifi.querySelector('.order-list-two');
-                orderPrice.innerHTML = '$' + this.getTotalPrice();
-
-            }
 
             this.domElems.goods.onclick = (e) => {
-            	e.preventDefault();
+                e.preventDefault();
                 let target = e.target;
 
                 if (target.className != 'add') {
@@ -58,14 +36,45 @@
                 item.qty = 1;
                 item.id = target.parentNode.children[0].classList[2];;
 
-         	    this.addToCart(item)
+                this.addToCart(item)
 
             }
             
-            this.cartArr = [];
-            
-    		this.init()
+            this.domElems.cart.onclick = (e) => {
+               let target = e.target;
 
+               if (target.className != 'delete-item') return;
+
+               let index = this.cartArr.findIndex(i => i.name === target.parentNode.children[1].innerHTML);
+               
+            
+               this.removeItem(index)
+               
+            }
+
+
+            this.domElems.orderButton.onclick = () => {
+                this.domElems.notifi.classList.remove('notification-display');
+                
+                let items = this.domElems.notifi.querySelector('.order-list-one');
+                items.innerHTML = this.getCartAmount();
+
+                let orderPrice = this.domElems.notifi.querySelector('.order-list-two');
+                orderPrice.innerHTML = '$' + this.getTotalPrice();
+                
+                this.domElems.notifiBlock.style.opacity = 0.9;
+                this.domElems.content.classList.add('to-blur');
+
+            }
+             
+        
+    		this.domElems.cross.onclick = () => {
+                this.domElems.notifi.classList.add('notification-display');
+                this.domElems.content.classList.remove('to-blur');
+            }
+            
+
+    		this.init()
     	}
 
 
@@ -73,14 +82,17 @@
            window.ls.initField(this.lsFieldId);
 
            this.showAmt(this.getCatrItems());
-
+          
            this.viewCart();
     	}
+
         showAmt(arr) {
             if (arr.length > 0) {
                this.domElems.amt.style.display = 'block';
                this.domElems.amt.innerHTML = arr.length;
-            }
+               return
+            } 
+            this.domElems.amt.style.display = 'none';
         }
 
         updateStorage() {
@@ -99,7 +111,7 @@
 
     	getCatrItems() {
            this.cartArr = window.ls.getFieldData(this.lsFieldId);
-       
+           
            return this.cartArr;
         }
 
@@ -119,9 +131,6 @@
         }
 
         
-
-
-
         viewCartList() {
         	let items = this.getCatrItems(),
                 listHTML = [];
@@ -184,12 +193,22 @@
                 arr.push(item);
                 return
             }
-            
             arr[index].qty++;       
               
         }
 
+        removeItem(index) {
+            if (this.cartArr[index].qty > 1) {
+               this.cartArr[index].qty--;
+               return
+            } 
+            
+            this.cartArr.splice(index, 1)
+            
+            this.updateStorage();
+            this.init();
 
+        }
     }
     
     window.cart = new Cart();
