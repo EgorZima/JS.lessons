@@ -5,7 +5,7 @@
 }
 
 body {
-	background:#ebf3fa;
+	background: #ebf3fa;
     font-family: 'Acme', sans-serif;
 	list-style: none;
 	overflow-x: hidden;
@@ -323,7 +323,7 @@ header {
 }
 
 .left-side {
-	width: 200px;
+	width: 210px;
 	margin-top: 50px;
 }
 .basket-icon  {
