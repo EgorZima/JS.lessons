@@ -10,7 +10,7 @@ function Slider(selector, options) {
   var currentSlideIndex = options.currentImg || 0;
   var imagesCount = sliderImagesNode.children.length;
   var slideSize = ( options.direction === 'horizontal' ) ? sliderImagesNode.offsetWidth : sliderImagesNode.offsetHeight;
- 
+
   sliderImagesNode.style.transition = '0.7s';
 
  
@@ -43,8 +43,7 @@ function Slider(selector, options) {
   	var directionStyle = ( options.direction === 'horizontal' ) ? 'marginLeft' : 'marginTop';
 
     sliderImagesNode.style[directionStyle] = -(currentSlideIndex * slideSize) + 'px';
-
-
+    
     paginationNode.querySelector('.active').classList.remove('active');
 
     paginationNode.children[currentSlideIndex].querySelector('a').classList.add('active');   

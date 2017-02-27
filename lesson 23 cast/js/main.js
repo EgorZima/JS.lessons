@@ -58,7 +58,7 @@
                 item.name = target.parentNode.children[0].classList[1];
                 item.price = target.parentNode.children[1].innerHTML; 
                 item.qty = 1;
-                item.id = target.parentNode.children[0].classList[2];;
+                item.id = target.getAttribute('value');
 
                 this.addToCart(item)
 
