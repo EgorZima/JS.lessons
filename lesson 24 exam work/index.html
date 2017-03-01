@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200" rel="stylesheet">
-    <link href="css/responsiveslides.css" rel="stylesheet" type="text/css" />  
-
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/responsiveslides.min.js" type="text/javascript"></script>
     <script src="js/responsiveslides.js" type="text/javascript"></script>
@@ -42,13 +41,11 @@
 
     <div class="content">
         <div class="wrap">
+
           <div class="explanation">
-        
             <p class="first-title"> How urlaubsglück works? </p>
             
-
             <div class="top-block block-first">
-              
                 <ul class="rslides">
                     <li><img src="img/slider/1.jpeg" alt=""></li>
                     <li><img src="img/slider/2.jpeg" alt=""></li>
@@ -56,7 +53,6 @@
                 </ul>
 
                 <div class="block-content">
-                    
                     <span class="step"> STEP 1 </span>
 
                     <h3 class="block-title">Sed leo enim, condimentum</h3>
@@ -65,17 +61,14 @@
 
             </div>
 
-
             <div class="top-block">
-              
                 <ul class="rslides">
                     <li><img src="img/slider/2.jpeg" alt=""></li>
                     <li><img src="img/slider/3.png" alt=""></li>
                     <li><img src="img/slider/1.jpeg" alt=""></li>
                 </ul>
 
-                <div class="block-content block-content-two">
-                    
+                <div class="block-content block-content-two">                   
                     <span class="step"> STEP 2 </span>
 
                     <h3 class="block-title">Morbi velit risus</h3>
@@ -84,9 +77,7 @@
 
             </div>
 
-
             <div class="top-block">
-              
                 <ul class="rslides">
                     <li><img src="img/slider/3.png" alt=""></li>
                     <li><img src="img/slider/1.jpeg" alt=""></li>
@@ -94,7 +85,6 @@
                 </ul>
 
                 <div class="block-content">
-                    
                     <span class="step"> STEP 3 </span>
 
                     <h3 class="block-title">Sed leo enim, condimentum</h3>
@@ -103,6 +93,7 @@
 
             </div>
            </div>
+
 
            <div class="people">
                <p class="first-title"> Meet a parthen for your best holiday </p>
@@ -150,8 +141,8 @@
               <div class="button-other">
                     <button type="submit" class="other">See other parthers </button>
               </div>
-           
            </div>
+
 
            <div class="dicsover">
                <p class="first-title"> Discover holiday activity ideas</p>
@@ -196,8 +187,6 @@
                 </div>         
             </div> 
 
-
-
             <div class="search">
                 <p class="first-title"> Discover holiday activity ideas</p>
                 <p class="subtext"> Hi! What are your holiday interest?</p>
@@ -233,13 +222,14 @@
 
 
 <script type="text/javascript">
+    
     $(".rslides").responsiveSlides({
         auto: true,             // Boolean: Animate automatically, true or false
-        speed: 400,             // Integer: Speed of the transition, in milliseconds
-        timeout: 5000,          // Integer: Time between slide transitions, in milliseconds
+        speed: 200,             // Integer: Speed of the transition, in milliseconds
+        timeout: 4200,          // Integer: Time between slide transitions, in milliseconds
         pager: false,           // Boolean: Show pager, true or false
         nav: true,              // Boolean: Show navigation, true or false
-        random: false,          // Boolean: Randomize the order of the slides, true or false
+        random: true,           // Boolean: Randomize the order of the slides, true or false
         pause: false,           // Boolean: Pause on hover, true or false
         pauseControls: true,    // Boolean: Pause when hovering controls, true or false
         prevText: "",           // String: Text for the "previous" button
@@ -250,7 +240,7 @@
         namespace: "rslides",   // String: Change the default namespace used
         before: function(){},   // Function: Before callback
         after: function(){}     // Function: After callback
-});    
+   });   
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.js"></script>
