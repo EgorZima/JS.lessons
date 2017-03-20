@@ -43,7 +43,7 @@
       }
       
       getUrlHash() {
-        let hash = window.location.hash;
+        let hash = window.location.hash || 'cnn';
 
         return hash.replace('#', '');    
       }
