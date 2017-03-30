@@ -7,9 +7,9 @@
        this.inputFiend = document.querySelector('.task-form-text');
 	   this.form = document.querySelector('.task-form');
 	   this.todoList = document.querySelector('.table-body');
+       
 
-
-	   this.todoList.onclick = function(e) {
+	   this.todoList.onclick = (e) => {
             var target = e.target;
             
             if (!target.classList.contains('btn-remove') ) {
@@ -18,8 +18,8 @@
 
             var index = target.getAttribute('data-index');
             
-            localStorage.removeItem(self.getLength());
-            self.removeItem(index);
+            localStorage.removeItem(index);
+            this.removeItem(index);
     	}
 
     	this.init();
@@ -56,17 +56,21 @@
 
     // Добавить в DOM
     appendItem(index, item) {
-    	var tr = document.createElement('tr');
-        tr.className = 'one-task'
-        tr.innerHTML = this.getItemHtml(index, item.text);
+    	var li = document.createElement('li');
+        li.style.listStyle = 'none';
+        li.innerHTML = this.getItemHtml(index, item.text);
 
-        this.todoList.appendChild(tr);
+        return this.todoList.appendChild(li);
     }
 
     // Генерация HTML елемента
 	getItemHtml(position, item) { 
-       var tmpl = '<tr class="one-task"> <th> :position </th><td class="task-text"><p>:Text</p></td> <td><button type="button" class="button btn-remove" data-index=":index">X</button> </td></tr>'
-	   
+       var tmpl = ` <li class="one-task">
+                        <span> :position </span>
+                        <span class-"task-text"> :Text  </span>
+                        <button type="button" class="button btn-remove" data-index=":index">X</button>  
+        `
+        
 	   return tmpl.replace(/:position/gi, position).replace(/:Text/gi, item).replace(/:index/gi, position - 1);    
 	} 
     
@@ -84,6 +88,7 @@
 
     	this.todoList.innerHTML = list;
     }
+    
     
     // удаление задания
     removeItem(index) {
@@ -106,16 +111,15 @@
 
     // Инициализация 
     init() {
-        var self = this; 
         this.showLocalStorageTasks();
 
-    	this.form.onclick =  function(e) {
+    	this.form.onclick = (e) => {
     		var target = e.target;
             
             if (target.className != 'form-submit' ) {
             	return
             }
-            self.onFormSubmit(e)
+            this.onFormSubmit(e)
     	};
 
     	this.renderList();
