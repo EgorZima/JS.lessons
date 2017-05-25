@@ -9,6 +9,7 @@
        this.articles = document.querySelector('.articles');  
        this.news = document.querySelector('.one-news');
        this.menu = document.querySelector('.menu');
+       this.postHeading = document.querySelector('.post-heading');
        this.init();
       } 
 
@@ -108,6 +109,7 @@
       
       let readMore = newItem.querySelector('.read-more');
       readMore.href = item.url;
+      this.postHeading.href = item.url;
 
       let image = newItem.querySelector('.news-image') ;
       image.src = item.urlToImage;
